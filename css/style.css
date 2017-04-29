@@ -3,9 +3,7 @@ body{
   padding-top: 55px;
 }
 #title{
-  font-size:100px;
-  background-color:	#556B2F;
-  text-align: center;
+  font-size:35px;
   font-weight: 550;
-  color: white;
+  color: #003377;
 }
