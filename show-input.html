@@ -16,13 +16,13 @@
  <meta charset="UTF-8">
  </head>
 <body>
-<button type="button" class="btn btn-info " onclick='inputModalTrigger()'>輸入成績</button>
+<button type="button" class="btn btn-info" onclick='inputModalTrigger()' style="">輸入成績</button>
 <div>
- <table class="table table-hover" id=cookiesTable >
+ <table class="table table-hover" id=scoreTable >
         <thead>
             <tr>
-                <td>日期</td>  <td> 星期 </td>  <td>科目</td>  
-              <td> 單元 </td> <td> 成績 </td> <td><button class="btn btn-default">備註</button></td>
+                <td>日期</td>  <td>星期</td>  <td>科目</td>  
+              <td>單元</td> <td>成績</td> <td>備註</td>
             </tr>
         </thead>
         <tbody>
@@ -42,11 +42,11 @@
     <p style="text-align:center;">日期</p>
       <div class="row">
        <div class="col-lg-12">
-         <input class="form-control" type="date">
+         <input class="form-control" type="date" id="dateInput">
        </div><!-- /.col-lg-6 -->
 <br>
     <div class="col-lg-12">   
-      <select id="beverage-id">
+      <select id="weekdayS">
       <option value="">選擇星期</option>
       <option value="MON">一</option>
       <option value="TUE">二</option>
@@ -63,13 +63,13 @@
 <br>
    <p style="text-align:center;">單元</p>
    <div class="col-lg-12">
-      <input type="text" class="form-control" id="uniIpt">
+      <input type="text" class="form-control" id="unitIpt">
    </div><!-- /.col-lg-6 -->
        
 <br>
    <p style="text-align:center;">成績</p>
    <div class="col-lg-12">
-      <input type="number" class="form-control" id="uniIpt">
+      <input type="number" class="form-control" id="scoreIpt">
    </div><!-- /.col-lg-6 -->
 <br>
    <p style="text-align:center;">備註</p>
@@ -81,7 +81,7 @@
       
      
      <div class="modal-footer">
-       <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveChanges" onclick='addTable()'>Submit</button>
+       <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveChanges" onclick='addCollection()'>Submit</button>
        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
       </div>
     </div>
@@ -89,14 +89,43 @@
 </div>
  
  <script>
-  
+  scoreCollection.load(
+   function(){
+    
+    
+    
+    
+   }
+  );
   function inputModalTrigger(){
   $("#myModal1").modal();
   }
   
- function addTable(){
+ function addCollection(){
+  var newscore={
+   date: $("#dateIpt").val(),
+   weekday: $("select#weekdayS:selected").val(),
+   subject: $("#subjectIpt").val(),
+   unit: $("#unitIpt").val(),
+   score: $("#scoreIpt").val(),
+   extra: $("#extraIpt").val()
+    }
+   scoreCollection.insert(newscore);
+   scoreCollection.save();
  }
- 
+ function showTable(){
+    $("tbody").text("");
+    $("scoreTable").show();
+for(var i=0;i<scoreCollection.find().length; i++){ 
+   var scoredata ="<tr><td>"+scoreCollection.find()[i].date+"</td><td>"+scoreCollection.find()[i].weekday+"</td><td>"+
+    scoreCollection.find()[i].subject+"</td><td>"+scoreCollection.find()[i].unit+
+    "</td><td><button class="btn btn-default">備註</button></td></tr>"
+$("tbody").append(scoredata);
+  } 
+ }
+  
+  
+  
  </script>
  
 </body>
