@@ -7,14 +7,14 @@
 
 <!-- versionCode is optional and Android only -->
 
-  <name>SimpsonAccounter</name>
+  <name>Amy Score Record</name>
 
   <description>
-     Let Simpson help you save money!
+     Let Amy help you record your score!
   </description>
 
   <author href="https://build.phonegap.com" email="support@phonegap.com">
-      John Liu
+      Sonya Hsieh
   </author>
 
 </widget>
