@@ -16,17 +16,27 @@
  <meta charset="UTF-8">
  </head>
 <body>
- <div class="btn-toolbar" role="toolbar">
-  <div class="btn-group" role="group">
-   <button type="button" class="btn btn-info" onclick='inputModalTrigger()' style="margin-left:5px;"><i class="material-icons">input</i>輸入成績</button>
-   <button type="button" class="btn btn-warning" id="deleteBtn"><i class="material-icons">delete_forever</i></button>
+ <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <!--picture here-->
+    </div>
+    <ul class="nav navbar-nav">
+     <div class="btn-toolbar" role="toolbar">
+      <div class="btn-group" role="group">
+       <button type="button" class="btn btn-info" onclick='inputModalTrigger()' style="margin-left:5px;"><i class="material-icons">input</i>輸入成績</button>
+       <button type="button" class="btn btn-warning" id="deleteBtn"><i class="material-icons">delete_forever</i></button>  
+      </div>
+     </div> 
+    </ul>
   </div>
- </div>
+</nav>
+ 
 <div>
  <table class="table table-hover" id=scoreTable >
         <thead>
             <tr>
-                <td>日期</td>  <td>星期</td>  <td>科目</td>  
+                <td></td>&nbsp;<td>日期</td>  <td>星期</td>  <td>科目</td>  
               <td>單元</td> <td>成績</td> <td>備註</td>
             </tr>
         </thead>
@@ -119,7 +129,8 @@
   scoreCollection.load(
    function(){
     for(var i=0;i<scoreCollection.find().length; i++){ 
-     var scoredata ="<tr><td>"+scoreCollection.find()[i].date+"</td><td>"+scoreCollection.find()[i].weekday+"</td><td>"+
+     var scoredata ="<tr><td><input class='checkbox' type=\"radio\" value='"+scoreCollection.find()[i]._id+"'></td><td>"+scoreCollection.find()[i].date+
+                     "</td><td>"+scoreCollection.find()[i].weekday+"</td><td>"+
      scoreCollection.find()[i].subject+"</td><td>"+scoreCollection.find()[i].unit+"</td><td>"+scoreCollection.find()[i].score+
      "</td><td><button id='extraBtn' class=\"btn btn-default\" data-id='"+scoreCollection.find()[i]._id+"'>備註</button></td></tr>"
     }
@@ -148,7 +159,8 @@
     $("tbody").text("");
     $("scoreTable").show();
 for(var i=0;i<scoreCollection.find().length; i++){ 
-   var scoredata ="<tr><td>"+scoreCollection.find()[i].date+"</td><td>"+scoreCollection.find()[i].weekday+"</td><td>"+
+   var scoredata ="<tr><td><input class='checkbox' type=\"radio\" value='"+scoreCollection.find()[i]._id+"'></td><td>"+scoreCollection.find()[i].date+
+                  "</td><td>"+scoreCollection.find()[i].weekday+"</td><td>"+
     scoreCollection.find()[i].subject+"</td><td>"+scoreCollection.find()[i].unit+"</td><td>"+scoreCollection.find()[i].score+
     "</td><td><button id='extraBtn' class=\"btn btn-default\" data-id='"+scoreCollection.find()[i]._id+"'>備註</button></td></tr>"
 }
@@ -165,6 +177,32 @@ for(var i=0;i<scoreCollection.find().length; i++){
   }
   $("table").on("click","button#extraBtn",extraModal);
   
+  
+  function deleteTable(){
+    var checkList= []
+    var target= $(".checkbox:checked").closest("tr");
+    for(var i=0; i<target.length; i++){
+    //console.log(target[i]);
+    checkList.push(target[i].value);
+   }
+   var result = scoreCollection.find({
+     _id: {
+       $in: checkList
+      }
+   }); 
+   if(result!=""){ 
+    var r = confirm("Are you sure?");
+    if (r == true){
+     scoreCollection.remove({
+      _id: result
+     });
+   } else{
+    alert("尚未選擇");
+   }
+    showTable();
+  }
+   $("table").on("click","button#deleteBtn",deleteTable);
+   
  </script>
  
 </body>
