@@ -122,7 +122,7 @@
     $("scoreTable").show();
 for(var i=0;i<scoreCollection.find().length; i++){ 
    var scoredata ="<tr><td>"+scoreCollection.find()[i].date+"</td><td>"+scoreCollection.find()[i].weekday+"</td><td>"+
-    scoreCollection.find()[i].subject+"</td><td>"+scoreCollection.find()[i].unit+
+    scoreCollection.find()[i].subject+"</td><td>"+scoreCollection.find()[i].unit+"</td><td>"+scoreCollection.find()[i].score+
     "</td><td><button class=\"btn btn-default\">備註</button></td></tr>"
 }
    $("tbody").append(scoredata);
