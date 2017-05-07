@@ -154,9 +154,15 @@
    scoreCollection.insert(newscore);
    scoreCollection.save();
    showTable();
+   $("#dateIpt").val("");
+   $("select#weekdayS:selected").val("");
+   $("#subjectIpt").val("");
+   $("#unitIpt").val("");
+   $("#scoreIpt").val("");
+   $("#extraIpt").val("");
  }
- function showTable(){
-    $("tbody").text("");
+ 
+  function showTable(){
     $("scoreTable").show();
 for(var i=0;i<scoreCollection.find().length; i++){ 
    var scoredata ="<tr><td><input class='checkbox' type=\"radio\" value='"+scoreCollection.find()[i]._id+"'></td><td>"+scoreCollection.find()[i].date+
