@@ -163,7 +163,7 @@
  }
  
   function showTable(){
-    $("scoreTable").show();
+    $("tbody").text("");
 for(var i=0;i<scoreCollection.find().length; i++){ 
    var scoredata ="<tr><td><input class='checkbox' type=\"radio\" value='"+scoreCollection.find()[i]._id+"'></td><td>"+scoreCollection.find()[i].date+
                   "</td><td>"+scoreCollection.find()[i].weekday+"</td><td>"+
@@ -208,7 +208,7 @@ for(var i=0;i<scoreCollection.find().length; i++){
    if(result ==""){
     alert("尚未選擇");
    }
-    $("tbody").text("");
+    scoreCollection.save();
     showTable();
    }
   }
