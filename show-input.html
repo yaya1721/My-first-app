@@ -16,7 +16,12 @@
  <meta charset="UTF-8">
  </head>
 <body>
-<button type="button" class="btn btn-info" onclick='inputModalTrigger()' style="margin-left:5px;">輸入成績</button>
+ <div class="btn-toolbar" role="toolbar">
+  <div class="btn-group" role="group">
+   <button type="button" class="btn btn-info" onclick='inputModalTrigger()' style="margin-left:5px;"><i class="material-icons">input</i>輸入成績</button>
+   <button type="button" class="btn btn-warning" id="deleteBtn"><i class="material-icons">delete_forever</i>刪除</button>
+  </div>
+ </div>
 <div>
  <table class="table table-hover" id=scoreTable >
         <thead>
@@ -76,6 +81,7 @@
    <div class="col-lg-12">
       <input type="text" class="form-control" id="extraIpt">
    </div><!-- /.col-lg-6 -->
+     <!-- 相機-->
    </div><!-- row -->   
       </div><!--molda body-->
       
@@ -88,13 +94,34 @@
   </div>
 </div>
  
+ 
+ <!-- Modal2 -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">錯誤欄~</h4>
+      </div>
+      <div class="modal-body">
+        <p id="test"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+ 
+ 
  <script>
   scoreCollection.load(
    function(){
     for(var i=0;i<scoreCollection.find().length; i++){ 
      var scoredata ="<tr><td>"+scoreCollection.find()[i].date+"</td><td>"+scoreCollection.find()[i].weekday+"</td><td>"+
-     scoreCollection.find()[i].subject+"</td><td>"+scoreCollection.find()[i].unit+
-     "</td><td><button class=\"btn btn-default\">備註</button></td></tr>"
+     scoreCollection.find()[i].subject+"</td><td>"+scoreCollection.find()[i].unit+"</td><td>"+scoreCollection.find()[i].score+
+     "</td><td><button id='extraBtn' class=\"btn btn-default\" data-id='"+scoreCollection.find()[i]._id+"'>備註</button></td></tr>"
     }
     $("tbody").append(scoredata);
    }
@@ -123,13 +150,20 @@
 for(var i=0;i<scoreCollection.find().length; i++){ 
    var scoredata ="<tr><td>"+scoreCollection.find()[i].date+"</td><td>"+scoreCollection.find()[i].weekday+"</td><td>"+
     scoreCollection.find()[i].subject+"</td><td>"+scoreCollection.find()[i].unit+"</td><td>"+scoreCollection.find()[i].score+
-    "</td><td><button class=\"btn btn-default\">備註</button></td></tr>"
+    "</td><td><button id='extraBtn' class=\"btn btn-default\" data-id='"+scoreCollection.find()[i]._id+"'>備註</button></td></tr>"
 }
    $("tbody").append(scoredata);
   } 
  
-  
-  
+  function extraModal(){
+   $("#myModal2").modal();
+   var scoreid = $(this).data("id");
+   var query={
+     _id: scoreid
+    };
+    $("#test").text(scoreCollection.find(query)[0].extra);
+  }
+  $("table").on("click","button#extraBtn",extraModal);
   
  </script>
  
