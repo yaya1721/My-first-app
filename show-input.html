@@ -186,32 +186,32 @@ for(var i=0; i<scoreCollection.find().length; i++){
   $("table").on("click","button#extraBtn",extraModal);
   
   
-  function deleteTable(){
-    var checkList= []
-    var target= $(".checkbox :checked");
-    for(var i=0; i<target.length; i++){
-    console.log(target[i]);
-    checkList.push(target[i].value);
-   }
-   var result = scoreCollection.find({
-     _id: {
-       $in: checkList
-      }
-   }); 
-   if(result!=""){ 
-    var r = confirm("Are you sure?");
-    if (r == true){
-     for(var i=0; i<result.length;i++){
+ function deleteTable(){
+     var checkList= []
+     var target= $(".checkbox:checked").closest("tr");
+     for(var i=0; i<target.length; i++){
+     console.log(target[i]);
+     checkList.push(target[i].value);
+    }
+    var result = scoreCollection.find({
+      _id: {
+        $in: checkList
+       }
+    }); 
+    if(result!=""){ 
+     var r = confirm("Are you sure?");
+     if (r == true){
       scoreCollection.remove({
-      _id: result[i]
+        _id: {
+           $in: checkList
+          }
       });
-     }
-    scoreCollection.save();
-    showTable();
-   } 
+     scoreCollection.save();
+     showTable();
+    } 
+    }
    }
-  }
-   $("button#deleteBtn").on("click",deleteTable);
+    $("button#deleteBtn").on("click",deleteTable);
    
  </script>
  
