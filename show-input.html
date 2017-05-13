@@ -84,7 +84,7 @@
 <br>
    <p style="text-align:center;">成績</p>
    <div class="col-lg-12">
-      <input type="number" class="form-control" id="weekdayS">
+      <input type="number" class="form-control" id="scoreIpt">
    </div><!-- /.col-lg-6 -->
 <br>
    <p style="text-align:center;">備註</p>
@@ -164,6 +164,7 @@
  
   function showTable(){
     console.log("a");
+    $("scoreTable").show();
     scoreCollection.load();
     $("tbody").text("");
 for(var i=0;i<scoreCollection.find().length; i++){ 
