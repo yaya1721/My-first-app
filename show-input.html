@@ -155,7 +155,7 @@
    scoreCollection.save();
    showTable();
    $("#dateIpt").val("");
-   $("select#weekdayS:selected").val("");
+   $("select#weekdayS :selected").val("");
    $("#subjectIpt").val("");
    $("#unitIpt").val("");
    $("#scoreIpt").val("");
@@ -164,6 +164,7 @@
  
   function showTable(){
     console.log("a");
+    scoreCollection.load();
     $("tbody").text("");
 for(var i=0;i<scoreCollection.find().length; i++){ 
    var scoredata ="<tr><td><input class='checkbox' type=\"radio\" value='"+scoreCollection.find()[i]._id+"'></td><td>"+scoreCollection.find()[i].date+
