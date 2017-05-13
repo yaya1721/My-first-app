@@ -133,8 +133,8 @@
                      "</td><td>"+scoreCollection.find()[i].weekday+"</td><td>"+
      scoreCollection.find()[i].subject+"</td><td>"+scoreCollection.find()[i].unit+"</td><td>"+scoreCollection.find()[i].score+
      "</td><td><button id='extraBtn' class=\"btn btn-default\" data-id='"+scoreCollection.find()[i]._id+"'>備註</button></td></tr>"
-    }
     $("tbody").append(scoredata);
+    }
    }
   );
   function inputModalTrigger(){
@@ -172,8 +172,8 @@ for(var i=0; i<scoreCollection.find().length; i++){
                   "</td><td>"+scoreCollection.find()[i].weekday+"</td><td>"+
     scoreCollection.find()[i].subject+"</td><td>"+scoreCollection.find()[i].unit+"</td><td>"+scoreCollection.find()[i].score+
     "</td><td><button id='extraBtn' class=\"btn btn-default\" data-id='"+scoreCollection.find()[i]._id+"'>備註</button></td></tr>"
-}
    $("tbody").append(scoredata);
+}
   } 
  
   function extraModal(){
