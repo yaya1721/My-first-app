@@ -16,7 +16,7 @@
  <meta charset="UTF-8">
  </head>
  <body>
-  
+<p>本周的成績</p> 
 <div>
  <table class="table table-hover" id=scoreTable >
         <thead>
@@ -70,7 +70,7 @@
    
  //設定資料格式  
  var result =scoreCollection.find(
-   {};
+   {},
    { $orderBy: {date:-1},$limit: 10}
    );
    
