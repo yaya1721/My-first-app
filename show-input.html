@@ -188,7 +188,7 @@ for(var i=0; i<scoreCollection.find().length; i++){
   
  function deleteTable(){
      var checkList= []
-     var target= $(".checkbox:checked").closest("tr");
+     var target= $(".checkbox :checked").closest("tr");
      for(var i=0; i<target.length; i++){
      console.log(target[i]);
      checkList.push(target[i].value);
