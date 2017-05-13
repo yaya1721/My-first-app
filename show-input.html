@@ -73,23 +73,23 @@
 <br>
    <p style="text-align:center;">科目</p>
    <div class="col-lg-12">
-      <input type="text" class="form-control" id="subjectIpt">
+      <input type="text" class="form-control" id="subjectIpt" required>
    </div><!-- /.col-lg-6 -->
 <br>
    <p style="text-align:center;">單元</p>
    <div class="col-lg-12">
-      <input type="text" class="form-control" id="unitIpt">
+      <input type="text" class="form-control" id="unitIpt" required>
    </div><!-- /.col-lg-6 -->
        
 <br>
    <p style="text-align:center;">成績</p>
    <div class="col-lg-12">
-      <input type="number" class="form-control" id="scoreIpt">
+      <input type="number" class="form-control" id="scoreIpt" required>
    </div><!-- /.col-lg-6 -->
 <br>
    <p style="text-align:center;">備註</p>
    <div class="col-lg-12">
-      <input type="text" class="form-control" id="extraIpt">
+      <input type="text" class="form-control" id="extraIpt" required>
    </div><!-- /.col-lg-6 -->
      <!-- 相機-->
    </div><!-- row -->   
@@ -163,12 +163,12 @@
  }
  
   function showTable(){
-    console.log("a");
     $("scoreTable").show();
     scoreCollection.load();
     $("tbody").text("");
-for(var i=0;i<scoreCollection.find().length; i++){ 
-   var scoredata ="<tr><td><input class='checkbox' type=\"radio\" value='"+scoreCollection.find()[i]._id+"'></td><td>"+scoreCollection.find()[i].date+
+for(var i=0; i<scoreCollection.find().length; i++){ 
+   var scoredata =
+       "<tr><td><input class='checkbox' type=\"radio\" value='"+scoreCollection.find()[i]._id+"'></td><td>"+scoreCollection.find()[i].date+
                   "</td><td>"+scoreCollection.find()[i].weekday+"</td><td>"+
     scoreCollection.find()[i].subject+"</td><td>"+scoreCollection.find()[i].unit+"</td><td>"+scoreCollection.find()[i].score+
     "</td><td><button id='extraBtn' class=\"btn btn-default\" data-id='"+scoreCollection.find()[i]._id+"'>備註</button></td></tr>"
