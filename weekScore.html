@@ -21,7 +21,7 @@
  <table class="table table-hover" id=scoreTable >
         <thead>
             <tr>
-                <td></td><td>日期</td>  <td>星期</td>  <td>科目</td>  
+               <td>日期</td>  <td>星期</td>  <td>科目</td>  
               <td>單元</td> <td>成績</td> <td>備註</td>
             </tr>
         </thead>
@@ -56,7 +56,7 @@
  scoreCollection.load(
    function(){
     for(var i=0;i<scoreCollection.find().length; i++){ 
-     var scoredata ="<tr><td><input class='checkbox' type=\"radio\" value='"+scoreCollection.find()[i]._id+"'></td><td>"+scoreCollection.find()[i].date+
+     var scoredata ="<tr><td>"+scoreCollection.find()[i].date+
                      "</td><td>"+scoreCollection.find()[i].weekday+"</td><td>"+
      scoreCollection.find()[i].subject+"</td><td>"+scoreCollection.find()[i].unit+"</td><td>"+scoreCollection.find()[i].score+
      "</td><td><button id='extraBtn' class=\"btn btn-default\" data-id='"+scoreCollection.find()[i]._id+"'>備註</button></td></tr>"
