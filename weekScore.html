@@ -1,1 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+ 
+ <script src="js/jquery-3.1.1.min.js"></script>
+ <script src="js/bootstrap.min.js"></script>
+ <script src="js/main.js"></script>
+ <script src="js/fdb-all.min.js"></script>
+ 
+ <link rel="stylesheet" href="css/bootstrap.css">
+ <link rel="stylesheet" href="css/style.css">
+ <link rel="shortcut icon" href="https://pbs.twimg.com/profile_images/631800387016626176/P5jbtPH5.png" type="image/x-icon" />
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ <meta charset="UTF-8">
+ </head>
+ <body>
+  
+<div>
+ <table class="table table-hover" id=scoreTable >
+        <thead>
+            <tr>
+                <td></td><td>日期</td>  <td>星期</td>  <td>科目</td>  
+              <td>單元</td> <td>成績</td> <td>備註</td>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>  
 
+   
+  <!-- Modal2 -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">錯誤欄~</h4>
+      </div>
+      <div class="modal-body">
+        <p id="test"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+   
+   
+   
+ <script>
+ scoreCollection.load(
+   function(){
+    for(var i=0;i<scoreCollection.find().length; i++){ 
+     var scoredata ="<tr><td><input class='checkbox' type=\"radio\" value='"+scoreCollection.find()[i]._id+"'></td><td>"+scoreCollection.find()[i].date+
+                     "</td><td>"+scoreCollection.find()[i].weekday+"</td><td>"+
+     scoreCollection.find()[i].subject+"</td><td>"+scoreCollection.find()[i].unit+"</td><td>"+scoreCollection.find()[i].score+
+     "</td><td><button id='extraBtn' class=\"btn btn-default\" data-id='"+scoreCollection.find()[i]._id+"'>備註</button></td></tr>"
+    }
+    $("tbody").append(scoredata);
+   }
+  );
+   
+   
+  
+   
+ //設定資料格式  
+ var result =scoreCollection.find(
+   {};
+   { $orderBy: {date:-1},$limit: 10}
+   );
+   
+ //列印資料  
+  for(var i=0;i<result.length; i++){
+    var scoredata= "<tr><td>" +result[i].date+"</td><td>"+result[i].weekday+"</td><td>"+result[i].subject+
+        "</td><td>"+result[i].unit+"</td><td>"+result[i].score+ 
+        "</td><td><button id='extraBtn' class=\"btn btn-default\" data-id='"+scoreCollection.find()[i]._id+"'>備註</button></td></tr>"
+      $("tbody").append(scoredata);
+  }
+    
+    
+  function extraModal(){
+   $("#myModal2").modal();
+   var scoreid = $(this).data("id");
+   var query={
+     _id: scoreid
+    };
+    $("#test").text(scoreCollection.find(query)[0].extra);
+  }
+  $("table").on("click","button#extraBtn",extraModal);
+   
+</script>  
+</body>  
+</html>
