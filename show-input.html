@@ -201,12 +201,14 @@ for(var i=0; i<scoreCollection.find().length; i++){
     if(result!=""){ 
      var r = confirm("Are you sure?");
      if (r == true){
+      for(var i=0; i<result.length; i++){
       scoreCollection.remove({
         _id: {
-            $in: checkList
+            $in: result[i]
            }
        });
     } 
+     }
       scoreCollection.save();
       showTable();
     }    
