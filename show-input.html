@@ -206,13 +206,13 @@ for(var i=0; i<scoreCollection.find().length; i++){
             $in: checkList
            }
        });
- -   } 
- -   if(result ==""){
- -    alert("尚未選擇");
- -   }
+    } 
+    if(result ==""){
+    alert("尚未選擇");
+   }
       scoreCollection.save();
       showTable();
- +   } 
+ } 
      }
     }
     $("button#deleteBtn").on("click",deleteTable);
