@@ -1,1 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+ 
+ <script src="js/jquery-3.1.1.min.js"></script>
+ <script src="js/bootstrap.min.js"></script>
+ <script src="js/fdb-all.min.js"></script>
+ <script src="js/main.js"></script>
+ 
+ <link rel="stylesheet" href="css/bootstrap.css">
+ <link rel="stylesheet" href="css/style.css">
+ <link rel="shortcut icon" href="https://pbs.twimg.com/profile_images/631800387016626176/P5jbtPH5.png" type="image/x-icon" />
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ <meta charset="UTF-8">
+ </head>
+<body>
+ <table id="typeTable" class='table table-hover'>
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Total Score</th>
+        <th>Percent</th>
+      </tr>
+    </thead>
+    <tbody>                  
+    </tbody>
+  </table>  
+ 
+ <script>
+  function searchDetail(){  
+   var query;
+    var date = new Date();
+            var day = date.getDay(); 
+    var result =scoreCollection.find(
+    {},
+    { $orderBy: {date:-1}, $limit: day} //Sunday=0
+    );
+ 
+   //列印資料  
+  for(var i=0;i<result.length; i++){
+    var scoredata= "<tr><td>" +result[i].date+"</td><td>"+result[i].weekday+"</td><td>"+result[i].subject+
+        "</td><td>"+result[i].unit+"</td><td>"+result[i].score+ 
+       "</td><td><button id='extraBtn' class=\"btn btn-default\" data-id='"+scoreCollection.find()[i]._id+"'>備註</button></td></tr>"
+      $("tbody").append(scoredata);
+ }
+    }
+   
+    var sum = [0,0,0,0,0,0,0,0,0,0];
+    var type = ["國文","英文","數學","物理","化學","生物","地科","歷史","地理","公民"];
+     switch(result[i].type){
+          case "國文":
+            this.sum[0] = this.sum[0] + result[i].number/1
+            break;
+          case "英文":
+            this.sum[1] = this.sum[1] + result[i].number/1
+            break;
+          case "數學":
+            this.sum[2] = this.sum[2] + result[i].number/1
+            break;
+          case "育":
+            this.sum[3] = this.sum[3] + result[i].number/1
+            break;
+          case "樂":
+            this.sum[4] = this.sum[4] + result[i].number/1
+            break;
+          default:
+            this.sum[5] = this.sum[5] + result[i].number/1
+            break;
+        }
+</script> 
+</body>
+</html>
 
