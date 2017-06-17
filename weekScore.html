@@ -54,26 +54,46 @@
    
  <script>
  scoreCollection.load(
+    var query;
     var date = new Date();
             var month = date.getMonth()+1;
-            var nextmonth = month+1;
             var year = date.getFullYear(); 
-            var day = date.getDay();
-  );
- 
- //設定資料格式  
- var result =scoreCollection.find(
-   {},
-   { $orderBy: {date:-1},$limit: 2}
-   );
-   
- //列印資料  
+            var date = date.getDate();
+            var day = date.getDay(); 
+    var result =scoreCollection.find(
+    {},
+    { $orderBy: {date:-1}, $limit: day}
+    );
+  function(){
+   //列印資料  
   for(var i=0;i<result.length; i++){
     var scoredata= "<tr><td>" +result[i].date+"</td><td>"+result[i].weekday+"</td><td>"+result[i].subject+
         "</td><td>"+result[i].unit+"</td><td>"+result[i].score+ 
-        "</td><td><button id='extraBtn' class=\"btn btn-default\" data-id='"+scoreCollection.find()[i]._id+"'>備註</button></td></tr>"
+       "</td><td><button id='extraBtn' class=\"btn btn-default\" data-id='"+scoreCollection.find()[i]._id+"'>備註</button></td></tr>"
       $("tbody").append(scoredata);
-  }
+ }
+    }
+   }
+  );          
+  
+  
+  
+  
+  );
+ 
+ //設定資料格式  
+// var result =scoreCollection.find(
+   //{},
+   //{ $orderBy: {date:-1},$limit: 2}
+  // );
+   
+ //列印資料  
+  //for(var i=0;i<result.length; i++){
+   // var scoredata= "<tr><td>" +result[i].date+"</td><td>"+result[i].weekday+"</td><td>"+result[i].subject+
+      //  "</td><td>"+result[i].unit+"</td><td>"+result[i].score+ 
+     //   "</td><td><button id='extraBtn' class=\"btn btn-default\" data-id='"+scoreCollection.find()[i]._id+"'>備註</button></td></tr>"
+   //   $("tbody").append(scoredata);
+ // }
     
     
   function extraModal(){
