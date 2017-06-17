@@ -54,11 +54,12 @@
    
  <script>
  scoreCollection.load(
-  var date=new Date();
-  var year=date.getUTCFullYear();
-  var month=date.getUTCMonth();
-  var datenum=date.getUTCDate();
- );
+    var date = new Date();
+            var month = date.getMonth()+1;
+            var nextmonth = month+1;
+            var year = date.getFullYear(); 
+            var day = date.getDay();
+  );
  
  //設定資料格式  
  var result =scoreCollection.find(
