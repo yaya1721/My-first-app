@@ -1,10 +1,11 @@
+<!1.日期與時間相對應：.change 2.編輯鈕 3.刪除全部>
 <!DOCTYPE html>
 <html>
 <head>
 <title></title>
  
  <script src="js/jquery-3.1.1.min.js"></script>
- <script src="js/bootstrap.min.js"></script>
+ <script src="js/bootstrap.min.js"></scrip
  <script src="js/fdb-all.min.js"></script>
  <script src="js/main.js"></script>
  
@@ -18,7 +19,7 @@
  <body>
 <h1  style="text-align:center; background-color:lightblue;">本周的成績</h1> 
 <div>
- <table class="table table-hover" id=scoreTable >
+ <table class="table table-hover" id="scoreTable" >
         <thead>
             <tr>
                <td>日期</td>  <td>星期</td>  <td>科目</td>  
@@ -182,7 +183,7 @@
         }
        countTypeTotal(totalScore);
       function countTypeTotal(totalScore){
-        $("table#subjectTable").text("");
+        $("table#subjectTable tbody").text("");
         for(var i=0;i<sum.length;i++){
             var percentdata = "<tr><td>"+type[i]+"</td><td>"+sum[i]+"</td><td>"+Math.round((sum[i]/totalScore)*100)+"%</td></tr>";
             $("table#subjectTable tbody").append(percentdata);
