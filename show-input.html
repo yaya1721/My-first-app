@@ -307,6 +307,12 @@ $("tbody").on("click","#editBtn", editModal);
   db.collection("score").updateById(editDataId,newscore); //只能透過id亂碼
   scoreCollection.save();
   showTable();
+  $("#dateEdit").val("");
+   $("select#weekdayE :selected").val("");
+   $("#subjectEdit").val("");
+   $("#unitEdit").val("");
+   $("#scoreEdit").val("");
+   $("#extraEdit").val("");
   } 
 }
   $("tbody").on("click","button#saveChanges", editTable);
