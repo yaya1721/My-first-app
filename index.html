@@ -27,7 +27,7 @@
    <a href="show-input.html"><button type="button" class="btn btn-primary btn-block" style="margin-bottom:6px;">顯示所有資料</button></a>
    <a href="lt80.html"><button type="button" class="btn btn-info btn-block" style="margin-bottom:6px;">80分以下</button></a>
    <a href="weekScore.html"><button type="button" class="btn btn-primary btn-block" style="margin-bottom:6px;">查詢各科</button></a>
-   <button type="button" class="btn btn-danger btn-block" style="margin-bottom:6px;" onclick='deleteAllTask'>清除所有資料</button>
+   <button type="button" class="btn btn-danger btn-block" id="red" style="margin-bottom:6px;">清除所有資料</button>
   </div>
  </div> 
  <script>
@@ -43,6 +43,8 @@
     }    
   }
   }
+  $("button#red").on("click",deleteAllTask);
+   
  </script>
 </body>
 </html>
