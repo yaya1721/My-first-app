@@ -149,37 +149,37 @@
     var subject = ["國文","英文","數學","物理","化學","生物","地科","歷史","地理","公民"];
      switch(result[i].subject){
           case "國文":
-            this.sum[0] = this.sum[0] + result[i].number/1
+            this.sum[0] = this.sum[0] + result[i].score/1
             break;
           case "英文":
-            this.sum[1] = this.sum[1] + result[i].number/1
+            this.sum[1] = this.sum[1] + result[i].score/1
             break;
           case "數學":
-            this.sum[2] = this.sum[2] + result[i].number/1
+            this.sum[2] = this.sum[2] + result[i].score/1
             break;
           case "物理":
-            this.sum[3] = this.sum[3] + result[i].number/1
+            this.sum[3] = this.sum[3] + result[i].score/1
             break;
           case "化學":
-            this.sum[4] = this.sum[4] + result[i].number/1
+            this.sum[4] = this.sum[4] + result[i].score/1
             break;
           case "生物":
-            this.sum[5] = this.sum[5] + result[i].number/1
+            this.sum[5] = this.sum[5] + result[i].score/1
             break;
           case "地科":
-            this.sum[6] = this.sum[6] + result[i].number/1
+            this.sum[6] = this.sum[6] + result[i].score/1
             break;
           case "歷史":
-            this.sum[7] = this.sum[7] + result[i].number/1
+            this.sum[7] = this.sum[7] + result[i].score/1
             break;
           case "地理":
-            this.sum[8] = this.sum[8] + result[i].number/1
+            this.sum[8] = this.sum[8] + result[i].score/1
             break;
           case "公民":
-            this.sum[9] = this.sum[9] + result[i].number/1
+            this.sum[9] = this.sum[9] + result[i].score/1
         //default type!= all cases above 
           }
-          totalScore = totalScore + result[i].number/1
+          totalScore = totalScore + result[i].score/1
         }
        countTypeTotal(totalScore);
       function countTypeTotal(totalScore){
