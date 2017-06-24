@@ -146,8 +146,8 @@
       $("#weekscoreTable").append(scoredata);
    
    
-    var type = ["國文","英文","數學","物理","化學","生物","地科","歷史","地理","公民"];
-     switch(result[i].type){
+    var subject = ["國文","英文","數學","物理","化學","生物","地科","歷史","地理","公民"];
+     switch(result[i].subject){
           case "國文":
             this.sum[0] = this.sum[0] + result[i].number/1
             break;
