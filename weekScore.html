@@ -88,7 +88,7 @@
     case 2: //TUE
         query={
                date: {
-                    "$gte": year+"-"+month+"-"+weekInitial,
+                    "$gt": year+"-"+month+"-"+weekInitial,
                     "$lte": year+"-"+month+"-"+datenum
                 }
             }
@@ -96,7 +96,7 @@
     case 3: //WED
          query={
                date: {
-                    "$gte": year+"-"+month+"-"+weekInitial,
+                    "$gt": year+"-"+month+"-"+weekInitial,
                     "$lte": year+"-"+month+"-"+datenum
                 }
             }
@@ -104,7 +104,7 @@
     case 4: //THURS
          query={
                date: {
-                    "$gte": year+"-"+month+"-"+weekInitial,
+                    "$gt": year+"-"+month+"-"+weekInitial,
                     "$lte": year+"-"+month+"-"+datenum
                 }
             }
@@ -113,7 +113,7 @@
       case 5:  //FRI
          query={
                date: {
-                    "$gte": year+"-"+month+"-"+weekInitial,
+                    "$gt": year+"-"+month+"-"+weekInitial,
                     "$lte": year+"-"+month+"-"+datenum
                 }
             }
@@ -121,7 +121,7 @@
      case 6:  //SAT
          query={
                date: {
-                    "$gte": year+"-"+month+"-"+weekInitial,
+                    "$gt": year+"-"+month+"-"+weekInitial,
                     "$lte": year+"-"+month+"-"+datenum
                 }
             }
@@ -129,7 +129,7 @@
      case 0:  //SUN
          query={
                date: {
-                    "$gte": year+"-"+month+"-"+weekInitial,
+                    "$gt": year+"-"+month+"-"+weekInitial,
                     "$lte": year+"-"+month+"-"+datenum
                 }
             }
