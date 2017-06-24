@@ -37,7 +37,8 @@
    var r = confirm("Are you sure?");
    if(r == true){
    for(var i=0; i<scoreCollection.find().length; i++){
-      scoreCollection.remove({
+     console.log(scoreCollection.find()[i]._id); 
+    scoreCollection.remove({
         _id: scoreCollection.find()[i]._id  
        });
     }    
