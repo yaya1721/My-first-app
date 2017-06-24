@@ -185,7 +185,7 @@
       function countTypeTotal(totalScore){
         $("table#subjectTable tbody").text("");
         for(var i=0;i<sum.length;i++){
-            var percentdata = "<tr><td>"+type[i]+"</td><td>"+sum[i]+"</td><td>"+Math.round((sum[i]/totalScore)*100)+"%</td></tr>";
+            var percentdata = "<tr><td>"+subject[i]+"</td><td>"+sum[i]+"</td><td>"+Math.round((sum[i]/totalScore)*100)+"%</td></tr>";
             $("table#subjectTable tbody").append(percentdata);
         }
       }
