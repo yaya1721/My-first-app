@@ -139,7 +139,7 @@
        </div><!-- /.col-lg-6 -->
 <br>
     <div class="col-lg-12">   
-      <select id="weekdayS">
+      <select id="weekdayE">
       <option value="">選擇星期</option>
       <option value="MON">一</option>
       <option value="TUE">二</option>
@@ -285,7 +285,7 @@ function editModal(){
         _id: editDataId
     } 
    $("#dateEdit").val(scoreCollection.find(query)[0].date);
-   $("select#weekdayS :selected").val(scoreCollection.find(query)[0].weekday);
+   $("select#weekdayE :selected").val(scoreCollection.find(query)[0].weekday);
    $("#subjectEdit").val(scoreCollection.find(query)[0].subject);
    $("#unitEdit").val(scoreCollection.find(query)[0].unit);
    $("#scoreEdit").val(scoreCollection.find(query)[0].score);
@@ -298,7 +298,7 @@ $("tbody").on("click","#editBtn", editModal);
  if (r == true){ 
    var newscore={
    date: $("#dateEdit").val(),
-   weekday: $("select#weekdayS :selected").val(),
+   weekday: $("select#weekdayE :selected").val(),
    subject: $("#subjectEdit").val(),
    unit: $("#unitEdit").val(),
    score: $("#scoreEdit").val(),
