@@ -135,14 +135,15 @@
        break;
 }
     var result =scoreCollection.find(query);
-   //列印資料  
+   //列印資料 
+   var totalScore =0;
+   var sum = [0,0,0,0,0,0,0,0,0,0];
   for(var i=0;i<result.length; i++){
     var scoredata= "<tr><td>" +result[i].date+"</td><td>"+result[i].weekday+"</td><td>"+result[i].subject+
         "</td><td>"+result[i].unit+"</td><td>"+result[i].score+ 
        "</td><td><button id='extraBtn' class=\"btn btn-default\" data-id='"+scoreCollection.find()[i]._id+"'>備註</button></td></tr>"
       $("tbody").append(scoredata);
-   var totalScore =0;
-   var sum = [0,0,0,0,0,0,0,0,0,0];
+  
     var type = ["國文","英文","數學","物理","化學","生物","地科","歷史","地理","公民"];
      switch(result[i].type){
           case "國文":
