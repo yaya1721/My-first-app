@@ -22,7 +22,7 @@
         <thead>
             <tr>
                <td>日期</td>  <td>星期</td>  <td>科目</td>  
-              <td>單元</td> <td>成績</td> <td>備註</td> <td></td>
+              <td>單元</td> <td>成績</td> <td>備註</td>
             </tr>
         </thead>
         <tbody id="weekscoreTable">
@@ -61,8 +61,6 @@
     </div>
   </div>
 </div>
- 
-   
    
    
  <script>
@@ -144,8 +142,7 @@
     var scoredata= "<tr><td>" +result[i].date+"</td><td>"+result[i].weekday+"</td><td>"+result[i].subject+
         "</td><td>"+result[i].unit+"</td><td>"+result[i].score+ 
        "</td><td><button id='extraBtn' class=\"btn btn-default\" data-id='"+scoreCollection.find()[i]._id+
-        "'>備註</button></td><td><button id='editBtn' class=\"btn btn-default\" data-id='"+scoreCollection.find()[i]._id+
-        "'>編輯</button></td></tr>"
+        "'>備註</button></td></tr>"
       $("#weekscoreTable").append(scoredata);
    
      switch(result[i].subject){
